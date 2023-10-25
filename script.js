@@ -120,7 +120,8 @@ function getPasswordOptions() {
     passwordLength: passwordLength,
     numericCharCheck: numericCharCheck,
     lowerCaseCheck: lowerCaseCheck,
-    upperCaseCheck: upperCaseCheck
+    upperCaseCheck: upperCaseCheck,
+    specialCharCheck: specialCharCheck,
   }
 
   console.log(selections)
