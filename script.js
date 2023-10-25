@@ -105,6 +105,11 @@ function getPasswordOptions() {
     getPasswordOptions()
   }
 
+  console.log(passwordLength, numericCharAmount, lowerCaseAmount, upperCaseAmount, specialCharAmount)
+
+  // Create a function/conditional if statement to check one type of character has been selected.
+
+
   // Save data into an object
 }
 
