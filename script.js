@@ -115,6 +115,15 @@ function getPasswordOptions() {
   }
 
   // Save data into an object
+
+  var selections = {
+    passwordLength: passwordLength,
+    numericCharCheck: numericCharCheck,
+    lowerCaseCheck: lowerCaseCheck,
+    upperCaseCheck: upperCaseCheck
+  }
+
+  console.log(selections)
 }
 
 // Function for getting a random element from an array
