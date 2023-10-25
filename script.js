@@ -95,20 +95,24 @@ function getPasswordOptions() {
   // Create a function/conditional if statement to test the user's input for passwordLength before going on to the other questions.
 
   if (passwordLength >= 8 && passwordLength <= 128){
-    var numericCharAmount = confirm("Would you like to include numbers?");
-    var lowerCaseAmount = confirm("Would you like to include lowercase letters?");
-    var upperCaseAmount = confirm("Would you like to include uppercase letters?");
-    var specialCharAmount = confirm("Would you like to include special characters? E.g. *, !, &, %, $, £");
+    var numericCharCheck = confirm("Would you like to include numbers?");
+    var lowerCaseCheck = confirm("Would you like to include lowercase letters?");
+    var upperCaseCheck = confirm("Would you like to include uppercase letters?");
+    var specialCharCheck = confirm("Would you like to include special characters? E.g. *, !, &, %, $, £");
   
   } else {
     alert("Please select a number between 8 and 128")
     getPasswordOptions()
   }
 
-  console.log(passwordLength, numericCharAmount, lowerCaseAmount, upperCaseAmount, specialCharAmount)
+  console.log(passwordLength, numericCharCheck, lowerCaseCheck, upperCaseCheck, specialCharCheck)
 
   // Create a function/conditional if statement to check one type of character has been selected.
 
+  if(numericCharCheck === false && lowerCaseCheck === false && upperCaseCheck === false && specialCharCheck === false){
+    alert("Please select a character type");
+    getPasswordOptions()
+  }
 
   // Save data into an object
 }
