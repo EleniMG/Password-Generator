@@ -90,7 +90,11 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-
+  var specialCharAmount = prompt("How many special characters would you like?");
+  var numericCharAmount = prompt("How many numbers would you like?");
+  var lowerCaseAmount = prompt("How many lowercased letters would you like?");
+  var upperCaseAmount = prompt("How many uppercased letters would you like?");
+  console.log(specialCharAmount, numericCharAmount, lowerCaseAmount, upperCaseAmount)
 }
 
 // Function for getting a random element from an array
@@ -108,6 +112,7 @@ var generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
 function writePassword() {
+  getPasswordOptions()
   var password = generatePassword();
   var passwordText = document.querySelector('#password');
 
