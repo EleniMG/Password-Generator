@@ -95,17 +95,15 @@ function getPasswordOptions() {
   // Create a function/conditional if statement to test the user's input for passwordLength before going on to the other questions.
 
   if (passwordLength >= 8 && passwordLength <= 128){
-    var specialCharAmount = prompt("How many special characters would you like?");
-    var numericCharAmount = prompt("How many numbers would you like?");
-    var lowerCaseAmount = prompt("How many lowercased letters would you like?");
-    var upperCaseAmount = prompt("How many uppercased letters would you like?");
+    var numericCharAmount = confirm("Would you like to include numbers?");
+    var lowerCaseAmount = confirm("Would you like to include lowercase letters?");
+    var upperCaseAmount = confirm("Would you like to include uppercase letters?");
+    var specialCharAmount = confirm("Would you like to include special characters? E.g. *, !, &, %, $, £");
   
   } else {
     alert("Please select a number between 8 and 128")
     getPasswordOptions()
   }
-
-  
 
   // Save data into an object
 }
