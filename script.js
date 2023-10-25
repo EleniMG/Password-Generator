@@ -92,12 +92,20 @@ var upperCasedCharacters = [
 function getPasswordOptions() {
   var passwordLength = prompt("How long do you want your password to be? Select a number between 8 and 128")
 
-  // Create a function to test the user's input for passwordLength before going on to the other questions.
-  var specialCharAmount = prompt("How many special characters would you like?");
-  var numericCharAmount = prompt("How many numbers would you like?");
-  var lowerCaseAmount = prompt("How many lowercased letters would you like?");
-  var upperCaseAmount = prompt("How many uppercased letters would you like?");
+  // Create a function/conditional if statement to test the user's input for passwordLength before going on to the other questions.
 
+  if (passwordLength >= 8 && passwordLength <= 128){
+    var specialCharAmount = prompt("How many special characters would you like?");
+    var numericCharAmount = prompt("How many numbers would you like?");
+    var lowerCaseAmount = prompt("How many lowercased letters would you like?");
+    var upperCaseAmount = prompt("How many uppercased letters would you like?");
+  
+  } else {
+    alert("Please select a number between 8 and 128")
+    getPasswordOptions()
+  }
+
+  
 
   // Save data into an object
 }
