@@ -88,6 +88,8 @@ var upperCasedCharacters = [
   'Z'
 ];
 
+
+
 // Function to prompt user for password options
 function getPasswordOptions() {
   var passwordLength = prompt("How long do you want your password to be? Select a number between 8 and 128")
@@ -105,7 +107,7 @@ function getPasswordOptions() {
     getPasswordOptions()
   }
 
-  console.log(passwordLength, numericCharCheck, lowerCaseCheck, upperCaseCheck, specialCharCheck)
+  // console.log(passwordLength, numericCharCheck, lowerCaseCheck, upperCaseCheck, specialCharCheck)
 
   // Create a function/conditional if statement to check one type of character has been selected.
 
@@ -116,15 +118,13 @@ function getPasswordOptions() {
 
   // Save data into an object
 
-  var selections = {
+  return {
     passwordLength: passwordLength,
     numericCharCheck: numericCharCheck,
     lowerCaseCheck: lowerCaseCheck,
     upperCaseCheck: upperCaseCheck,
-    specialCharCheck: specialCharCheck,
+    specialCharCheck: specialCharCheck
   }
-
-  console.log(selections)
 }
 
 // Function for getting a random element from an array
@@ -142,7 +142,8 @@ var generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
 function writePassword() {
-  getPasswordOptions()
+  var userSelections = getPasswordOptions();
+  console.log(userSelections)
   var password = generatePassword();
   var passwordText = document.querySelector('#password');
 
