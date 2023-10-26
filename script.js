@@ -138,7 +138,6 @@ function getPasswordOptions() {
 
 
 
-  var shortlistedCharacters = [];
   var possibleCharacters = [];
 
   if (numericCharCheck){
@@ -157,8 +156,10 @@ function getPasswordOptions() {
     possibleCharacters.push(upperCasedCharacters)
   }
 
+  var allCharacters = possibleCharacters.flat(Infinity)
+
   return {
-    possibleCharacters, 
+    allCharacters, 
     passwordLengthNum
   };
 
@@ -166,16 +167,26 @@ function getPasswordOptions() {
 
 // console.log(getPasswordOptions())
 
-var characterList = getPasswordOptions().possibleCharacters;
-var passworthLengthCount = getPasswordOptions().passwordLengthNum;
+var characterList = getPasswordOptions().allCharacters;
+var passwordLengthCount = getPasswordOptions().passwordLengthNum;
 
+var shortlistedCharacters = [];
 
 // Function for getting a random element from an array
 function getRandom(arr) {
   getPasswordOptions()
 
+  for (var i = 1; i <= passwordLengthCount; i++){
+    var index = Math.floor(Math.random() * arr.length)
+        
+    shortlistedCharacters.push(arr[index])
+    
+  }
+  return shortlistedCharacters;
+
 }
 
+shortlistedCharacters = getRandom(characterList)
 
 // Function to generate password with user input
 function generatePassword() {
@@ -187,7 +198,7 @@ var generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
 function writePassword() {
-  getPasswordOptions();
+  getRandom(characterList);
   var password = generatePassword();
   var passwordText = document.querySelector('#password');
 
