@@ -107,8 +107,6 @@ function getPasswordOptions() {
     getPasswordOptions()
   }
 
-  // console.log(passwordLength, numericCharCheck, lowerCaseCheck, upperCaseCheck, specialCharCheck)
-
   // Create a function/conditional if statement to check one type of character has been selected.
 
   if(numericCharCheck === false && lowerCaseCheck === false && upperCaseCheck === false && specialCharCheck === false){
@@ -118,19 +116,28 @@ function getPasswordOptions() {
 
   // Save data into an object
 
-  return {
+  var userSelections = {
     passwordLength: passwordLength,
     numericCharCheck: numericCharCheck,
     lowerCaseCheck: lowerCaseCheck,
     upperCaseCheck: upperCaseCheck,
     specialCharCheck: specialCharCheck
   }
+
+// Need to turn the passwordLength value from a string to a number
+// Based on the number and character selections, need to form a new array with randomly selected characters
+
+var passwordLengthNum = parseInt(Object.values(userSelections)[0])
+
+console.log(typeof passwordLengthNum)
 }
+
 
 // Function for getting a random element from an array
 function getRandom(arr) {
 
 }
+
 
 // Function to generate password with user input
 function generatePassword() {
@@ -142,8 +149,7 @@ var generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
 function writePassword() {
-  var userSelections = getPasswordOptions();
-  console.log(userSelections)
+  getPasswordOptions();
   var password = generatePassword();
   var passwordText = document.querySelector('#password');
 
