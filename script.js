@@ -124,17 +124,55 @@ function getPasswordOptions() {
     specialCharCheck: specialCharCheck
   }
 
-// Need to turn the passwordLength value from a string to a number
-// Based on the number and character selections, need to form a new array with randomly selected characters
+  // console.log(userSelections)
 
-var passwordLengthNum = parseInt(Object.values(userSelections)[0])
+  // Need to turn the passwordLength value from a string to a number
 
-console.log(typeof passwordLengthNum)
+  var passwordLengthNum = parseInt(Object.values(userSelections)[0])
+
+  // console.log(typeof passwordLengthNum)
+
+  // Create new array to store the characters that will go into the password
+  // Create new array which contains the characters that could be selected for the password
+  // Based on the number and character selections, the new array will need to include the randomly selected characters
+
+
+
+  var shortlistedCharacters = [];
+  var possibleCharacters = [];
+
+  if (numericCharCheck){
+    possibleCharacters.push(numericCharacters)
+  }
+
+  if (specialCharCheck){
+    possibleCharacters.push(specialCharacters)
+  }
+
+  if (lowerCaseCheck){
+    possibleCharacters.push(lowerCasedCharacters)
+  }
+
+  if (upperCaseCheck){
+    possibleCharacters.push(upperCasedCharacters)
+  }
+
+  return {
+    possibleCharacters, 
+    passwordLengthNum
+  };
+
 }
+
+// console.log(getPasswordOptions())
+
+var characterList = getPasswordOptions().possibleCharacters;
+var passworthLengthCount = getPasswordOptions().passwordLengthNum;
 
 
 // Function for getting a random element from an array
 function getRandom(arr) {
+  getPasswordOptions()
 
 }
 
