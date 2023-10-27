@@ -98,13 +98,14 @@ function getPasswordLength() {
     // Need to turn the passwordLength value from a string to a number
 
   if (passwordLength >= 8 && passwordLength <= 128){
-    // characterCheck();
     var passwordLengthNum = parseInt(passwordLength)
     return passwordLengthNum;
   
   } else {
-    alert("Please select a number between 8 and 128")
-    getPasswordLength()
+    alert("Please select a number between 8 and 128");
+    // location.reload();
+    return getPasswordLength();
+    
   }
 }
 
@@ -120,7 +121,7 @@ function characterCheck(passwordLengthNum){
 
   if(numericCharCheck === false && lowerCaseCheck === false && upperCaseCheck === false && specialCharCheck === false){
     alert("Please select a character type");
-    characterCheck()
+    return location.reload();
   }
 
   // Save data into an object
