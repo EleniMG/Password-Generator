@@ -172,21 +172,19 @@ function compileCharList(userSelections) {
 
 function getRandom(arr, passwordLengthNum) {
 
-  console.log(arr, passwordLengthNum)
- var shortlistedCharacters = [];
+  var shortlistedCharacters = [];
 
   for (var i = 1; i <= passwordLengthNum; i++){
-    var index = Math.floor(Math.random() * (arr.length + 1))
-        
-    shortlistedCharacters.push(arr[index])
-    
+    var firstIndex = Math.floor(Math.random() * (arr.length));
+    var secondIndex = Math.floor(Math.random() * arr[firstIndex].length);
+  
+    shortlistedCharacters.push(arr[firstIndex][secondIndex])
   }
-  // console.log(shortlistedCharacters)
+
+  
   return shortlistedCharacters;
 
 }
-
-// shortlistedCharacters = getRandom(characterList)
 
 // Function to generate password with user input
 function generatePassword() {
