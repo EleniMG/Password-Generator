@@ -91,7 +91,7 @@ var upperCasedCharacters = [
 
 
 // Function to prompt user for password options
-function getPasswordOptions() {
+function getPasswordLength() {
   var passwordLength = prompt("How long do you want your password to be? Select a number between 8 and 128")
 
   // Create a function/conditional if statement to test the user's input for passwordLength before going on to the other questions.
@@ -104,12 +104,12 @@ function getPasswordOptions() {
   
   } else {
     alert("Please select a number between 8 and 128")
-    getPasswordOptions()
+    getPasswordLength()
   }
 }
 
 // Function to check which types of characters the user wants to include, and return those values.
-function characterCheck(){
+function characterCheck(passwordLengthNum){
 
     var numericCharCheck = confirm("Would you like to include numbers?");
     var lowerCaseCheck = confirm("Would you like to include lowercase letters?");
@@ -133,7 +133,8 @@ function characterCheck(){
   }
 
 
-  var possibleCharacters = compileCharList(userSelections)
+  var possibleCharacters = compileCharList(userSelections);
+  var shortlistedCharacters = getRandom(possibleCharacters, passwordLengthNum);
 }
 
 
@@ -167,32 +168,30 @@ function compileCharList(userSelections) {
 }
 
 
-
-// var characterList = getPasswordOptions().allCharacters;
-// var passwordLengthCount = getPasswordOptions().passwordLengthNum;
-
-// var shortlistedCharacters = [];
-
 // // Function for getting a random element from an array
-// function getRandom(arr) {
-//   getPasswordOptions()
 
-//   for (var i = 1; i <= passwordLengthCount; i++){
-//     var index = Math.floor(Math.random() * arr.length)
+function getRandom(arr, passwordLengthNum) {
+
+  console.log(arr, passwordLengthNum)
+ var shortlistedCharacters = [];
+
+  for (var i = 1; i <= passwordLengthNum; i++){
+    var index = Math.floor(Math.random() * (arr.length + 1))
         
-//     shortlistedCharacters.push(arr[index])
+    shortlistedCharacters.push(arr[index])
     
-//   }
-//   return shortlistedCharacters;
+  }
+  // console.log(shortlistedCharacters)
+  return shortlistedCharacters;
 
-// }
+}
 
 // shortlistedCharacters = getRandom(characterList)
 
 // Function to generate password with user input
 function generatePassword() {
-  getPasswordOptions();
-  characterCheck();
+  var passwordLength = getPasswordLength();
+  characterCheck(passwordLength);
 }
 
 // Get references to the #generate element
