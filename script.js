@@ -135,6 +135,8 @@ function characterCheck(passwordLengthNum){
 
   var possibleCharacters = compileCharList(userSelections);
   var shortlistedCharacters = getRandom(possibleCharacters, passwordLengthNum);
+
+  return shortlistedCharacters;
 }
 
 
@@ -189,7 +191,7 @@ function getRandom(arr, passwordLengthNum) {
 // Function to generate password with user input
 function generatePassword() {
   var passwordLength = getPasswordLength();
-  characterCheck(passwordLength);
+  return characterCheck(passwordLength).join("");
 }
 
 // Get references to the #generate element
@@ -199,6 +201,7 @@ var generateBtn = document.querySelector('#generate');
 function writePassword() {
 
   var password = generatePassword();
+  console.log(password)
   var passwordText = document.querySelector('#password');
 
   passwordText.value = password;
