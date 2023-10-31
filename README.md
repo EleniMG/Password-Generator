@@ -29,11 +29,11 @@ Once you have confirmed a password length and character types, a password will b
 
 Please take a look at the screenshots below to see how it works:
 
-![Password Length Question](../Password-Generator/Images/Screenshot1.png)
+![Password Length Question](./Images/Screenshot1.png)
 
-![Character Check Question](../Password-Generator/Images/Screenshot2.png)
+![Character Check Question](./Images/Screenshot2.png)
 
-![Password Result](../Password-Generator/Images/Screenshot3.png)
+![Password Result](./Images/Screenshot3.png)
 
 ## Credits
 
